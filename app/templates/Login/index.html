@@ -1,0 +1,29 @@
+<div class="col-sm-4 col-sm-offset-4">
+  <div ng-controller="loginCtrl as vm">
+<div class="well">
+  <section class="content bgcolor-4">
+    <div class="text">
+  <h2>Login Here</h2>
+    </div>
+  <span class="input input--hoshi">
+  <input class="input__field input__field--hoshi" type="email" id="input-4" ng-model="vm.email"/>
+  <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+  <span class="input__label-content input__label-content--hoshi">Email</span>
+  </label>
+  </span>
+  <span class="input input--hoshi">
+  <input class="input__field input__field--hoshi" type="password" id="input-5" ng-model="vm.password"/>
+  <label class="input__label input__label--hoshi input__label--hoshi-color-1" for="input-4">
+  <span class="input__label-content input__label-content--hoshi">Password</span>
+  </label>
+  </span>
+  <button class="btn btn-block btn-primary"  ng-click="login()">Submit</button><br>
+    <div class="github">
+      <button class="btn btn-block btn-warning" ng-click="auth.authenticate('github')">
+        <i class="ion-social-github"></i> Sign in with GitHub</button>
+      </div>
+  </section>
+  </div>
+  </div>
+</div>
+

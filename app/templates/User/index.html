@@ -1,0 +1,29 @@
+
+<div ng-include="'templates/Sidebar/sidebar.html'"></div>
+
+<div class="col-md-10">
+
+  <div ng-app="myApp" ng-controller="userDataCtrl as vm">
+    <h1>{{vm.message}}</h1>
+    <table class="table table-bordered user-table" arrow-selector>
+      <thead class="thead-inverse">
+      <tr>
+
+        <th ng-click="orderByMe('name')">Name</th>
+        <th ng-click="orderByMe('Email')">Email</th>
+        <th>ContactNo</th>
+      </tr>
+      </thead>
+      <tr ng-repeat="x in vm.names | orderBy:myOrderBy" class="name"  ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">
+        <td>{{x.name | myFilter}}</td>
+        <td>{{x.Email}}</td>
+        <td>{{x.ContactNo}}</td>
+      </tr>
+      bchccvncv
+    </table>
+  </div>
+
+</div>
+
+</div>
+

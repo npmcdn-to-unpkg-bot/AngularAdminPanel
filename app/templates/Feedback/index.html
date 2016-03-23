@@ -1,0 +1,29 @@
+
+<div ng-include="'templates/Sidebar/sidebar.html'"></div>
+
+<div class="col-md-10">
+<div ng-app="adminPanelApp" ng-controller="feedbackController as vm">
+
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-primary" style="width:600px">
+        <div class="panel-heading">
+
+          <h4>FeedBacks {{msg}}</h4>
+
+        </div>
+        <div class="panel-body">
+          <div ng-repeat="data in vm.users">
+            <my-user title="{{data.name}}" name="{{data.name}}" email="{{data.Email}}"
+                     contact="{{data.address}}">
+
+            </my-user>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
