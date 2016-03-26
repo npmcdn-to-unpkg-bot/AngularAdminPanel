@@ -1,6 +1,7 @@
-angular.module('adminPanelApp').controller('signupCtrl',function($scope,$auth,$location){
+angular.module('adminPanelApp').controller('signupCtrl',signupCtrl);
 
   // Controller to provide Data To Signup Page
+function signupCtrl ($scope,$auth,$location){
 
   $scope.signup=function(){
     alert("Signup Called");
@@ -8,7 +9,7 @@ angular.module('adminPanelApp').controller('signupCtrl',function($scope,$auth,$l
       email:$scope.email,
       password:$scope.password
     }
-    $auth.signup(credentials).then(function(response) {
+      $auth.signup(credentials).then(function(response) {
       alert("signup");
       $auth.setToken(response);
       alert($auth.isAuthenticated());
@@ -19,6 +20,5 @@ angular.module('adminPanelApp').controller('signupCtrl',function($scope,$auth,$l
     }).catch(function () {
       alert("not signup");
     });
-
   }
-});
+}

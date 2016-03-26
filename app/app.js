@@ -6,16 +6,15 @@ support for Google, Facebook, LinkedIn, Twitter, Instagram, GitHub, Bitbucket, Y
 angular.module('adminPanelApp', ['satellizer','ngResource','ui.router', 'ngAnimate']);
 
 //configuration of main module
-
   angular.module('adminPanelApp').config(function ($stateProvider, $urlRouterProvider, $authProvider,$httpProvider) {
 
 
     $httpProvider.defaults.useXDomain =true;
-    delete $httpProvider.defaults.headers.common["X-Requested-With"];
+    // delete $httpProvider.defaults.headers.common["X-Requested-With"];
     $httpProvider.defaults.withCredentials = false;
 
     $authProvider.loginUrl = 'http://54.86.64.100:3000/api/v3/auth/user';
-    $authProvider.signupUrl='http://54.86.64.100:3000/api/v3/auth/user';
+    // $authProvider.signupUrl='http://54.86.64.100:3000/api/v3/auth/user';
 
     $urlRouterProvider.otherwise('/home');
 
@@ -86,28 +85,25 @@ angular.module('adminPanelApp', ['satellizer','ngResource','ui.router', 'ngAnima
       })
       .state('usersRecord',{
         url:'/users',
-        template:'<h1>{{title}}</h1>',
+        templateUrl:'templates/Record/usersRecord.html',
         controller:'usersCtrl'
+      })
+      .state('ourClients',{
+        url:'/clients',
+        templateUrl:"templates/OurClients/ourClients.html"
+
+      })
+      .state('insertRecord',{
+        url:'/insert',
+        templateUrl:'templates/InsertRecord/insert.html',
+        controller:'insertRecordCtrl'
       });
-
-
-
 
     $authProvider.github({
       url:'http://54.86.64.100:3000/api/v3/auth/github',
       clientId: 'f604a2a0a47c44cf0da2',
-      redirectUri: 'http://localhost/frontend/app/#/Dashboard'
-      // authorizationEndpoint: 'https://github.com/login/oauth/authorize',
-      // //to redirect after github logged in
-      // redirectUri: 'http://localhost/frontend/app/#/Dashboard',
-      // optionalUrlParams: ['scope'],
-      // scope: ['user:email'],
-      // scopeDelimiter: ' ',
-      // type: '2.0',
-      //
-      // popupOptions: { width: 1020, height: 618 }
+      redirectUri: 'http://localhost/frontend/app/#/dashboard'
     });
-
 
     function skipIfLoggedIn($q, $auth) {
       var deferred = $q.defer();
@@ -120,7 +116,7 @@ angular.module('adminPanelApp', ['satellizer','ngResource','ui.router', 'ngAnima
         deferred.resolve();
       }
       return deferred.promise;
-    }
+    }//end of function
     function loginRequired($q, $location, $auth) {
       var deferred = $q.defer();
       if ($auth.isAuthenticated()) {
@@ -129,6 +125,6 @@ angular.module('adminPanelApp', ['satellizer','ngResource','ui.router', 'ngAnima
         $location.path('/home');
       }
       return deferred.promise;
-    }
-  });
+    }//end of function
+  });//end of config function
 

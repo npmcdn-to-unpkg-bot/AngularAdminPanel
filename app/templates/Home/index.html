@@ -1,6 +1,15 @@
 
-<div class="col-md-12">
+<div class="col-md-12" ng-controller="homeCtrl as home">
   <div class="well well-center">
     <h1>{{title}}</h1>
+
+<div ng-if="!home.isAuthenticated()">    <marquee><h3>{{home.loginmsg}}</h3></marquee><br />
+    <h3><font color="#a52a2a"><a ui-sref="login">Login</a></font></h3>
 </div>
+
+    <div ng-if="home.isAuthenticated()">    <marquee><h3>{{home.logoutmsg}}</h3></marquee><br />
+      <h3><font color="#a52a2a"><a ui-sref="logout">Logout</a></font></h3>
+    </div>
+
 </div>
+  </div>

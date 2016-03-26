@@ -22,7 +22,6 @@ function feedback(){
       'name': 'ruchi',
       'Email': "ruchi123@gmail.com",
       'address': "mumbai"
-
     },
     {
       'name': 'pooja',

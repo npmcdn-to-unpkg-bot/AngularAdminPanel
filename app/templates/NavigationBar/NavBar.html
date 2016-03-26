@@ -2,13 +2,18 @@
 
   <div class="navbar-header">
     <a class="navbar-brand" ui-sref="home"><i class="ion-ios7-pulse-strong"></i>BridgeLabz</a>
+    <ul class="nav navbar-nav pull-right">
+    <li><a ui-sref="ourClients">Our Clients</a></li>
+</ul>
   </div>
   <ul class="nav navbar-nav">
     <li ng-if="isAuthenticated()"><a ui-sref="dashboard">Admin Panel</a></li>
+
   </ul>
   <ul ng-if="!isAuthenticated()" class="nav navbar-nav pull-right">
     <li><a ui-sref="login">Login</a></li>
     <li><a ui-sref="signup">Sign up</a></li>
+
   </ul>
   <ul ng-if="isAuthenticated()" class="nav navbar-nav pull-right">
     <li><a ui-sref="logout">Logout</a></li>

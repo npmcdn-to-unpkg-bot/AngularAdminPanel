@@ -1,11 +1,12 @@
+//making directive 'myUser' which is restrict to element only
+
 angular.module('adminPanelApp').directive('myUser', function () {
   return {
     restrict: 'E',
     transclude: 'true',
     templateUrl: 'templates/Feedback/productTemplate.html',
+
     link: function (scope, element, attr) {
-
-
       scope.title = attr.title;
       scope.name = attr.title;
       scope.email = attr.email;
